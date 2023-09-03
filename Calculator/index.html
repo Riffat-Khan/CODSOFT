@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="btn-container">
+            <button id="onOff" class="on-off-button" onclick="toggleCalculator()">On/Off</button>
+            <button class="ac-button" onclick="clearDisplay()">AC</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="calculateSquareRoot()">√</button>
+            <button class="plus-button" onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('%')">%</button>
+            <button class="on-off-button" onclick="calculateResult()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let calculatorOn = true;
+
+        const toggleCalculator = () => {
+            calculatorOn = !calculatorOn;
+            const display = document.getElementById('display');
+            display.value = '';
+
+            const buttons = document.querySelectorAll('button');
+            for (const button of buttons) {
+                if (button !== display && button.id !== 'onOff') {
+                    button.disabled = !calculatorOn;
+                }
+            }
+
+            display.style.background = calculatorOn ? 'linear-gradient(to left, rgb(242, 112, 156), rgb(255, 148, 114))' : 'linear-gradient(89.8deg, rgb(195, 67, 129) 11%, rgb(90, 43, 186) 83.4%)';
+        }
+
+        const appendToDisplay = (value) => {
+            if (calculatorOn) {
+                document.getElementById('display').value += value;
+            }
+        }
+
+        const clearDisplay = () => {
+            if (calculatorOn) {
+                document.getElementById('display').value = '';
+            }
+        }
+
+        const calculateResult = () => {
+            if (calculatorOn) {
+                const display = document.getElementById('display');
+                try {
+                    const result = eval(display.value);
+                    display.value = result;
+                } catch (error) {
+                    display.value = 'Error';
+                }
+            }
+        }
+
+        const calculateSquareRoot = () => {
+            const display = document.getElementById('display');
+            try {
+                display.value = Math.sqrt(eval(display.value));
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
