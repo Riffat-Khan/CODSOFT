@@ -1,0 +1,81 @@
+body {
+    background-image: url('123.jpg');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;            
+}
+
+.calculator {
+    width: 300px;
+    padding: 30px;
+    background-color: rgba(75, 0, 130, 0.1);
+    box-shadow: 0 0 30px rgb(205, 92, 92);
+    border-radius: 40px;
+    text-align: center;
+    position: relative;
+}
+
+#display {
+    width: 80%;
+    font-size: 24px;
+    padding: 40px;
+    margin: 20px 40px 10px -10px;
+    text-align: right;
+    background: linear-gradient(to left, rgb(242, 112, 156), rgb(255, 148, 114));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+}
+
+.btn-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.on-off-button {
+    grid-column: span 2;
+    width: 140px;
+    border-radius: 20px;
+    height: 55px;
+}
+
+button {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(205, 92, 92, 0.5);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(89.8deg, rgb(195, 67, 129) 11%, rgb(90, 43, 186) 83.4%);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ac-button {
+    grid-column: span 2;
+    margin-left: 80px;
+}
+
+.plus-button{
+    grid-row: span 2;
+    height: 130px;
+    border-radius: 20px;
+}
+
+
+
+
